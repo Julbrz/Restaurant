@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Journalier de Brasserie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Menu Journalier de Brasserie</h1>
+        </header>
+        <main>
+            <section class="menu-form">
+                <h2>Menu du Jour</h2>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="entree-nom">Nom de l'Entrée:</label>
+                    <input type="text" id="entree-nom" placeholder="Nom de l'entrée" required>
+                </div>
+                <div class="form-group">
+                    <label for="entree-ingredients">Ingrédients de l'Entrée:</label>
+                    <div id="entree-ingredients-container" class="ingredients-container"></div>
+                    <button type="button" class="btn" onclick="ajouterIngredient('entree')">Ajouter Ingrédient</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="plat-nom">Nom du Plat:</label>
+                    <input type="text" id="plat-nom" placeholder="Nom du plat principal" required>
+                </div>
+                <div class="form-group">
+                    <label for="plat-ingredients">Ingrédients du Plat:</label>
+                    <div id="plat-ingredients-container" class="ingredients-container"></div>
+                    <button type="button" class="btn" onclick="ajouterIngredient('plat')">Ajouter Ingrédient</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="dessert-nom">Nom du Dessert:</label>
+                    <input type="text" id="dessert-nom" placeholder="Nom du dessert" required>
+                </div>
+                <div class="form-group">
+                    <label for="dessert-ingredients">Ingrédients du Dessert:</label>
+                    <div id="dessert-ingredients-container" class="ingredients-container"></div>
+                    <button type="button" class="btn" onclick="ajouterIngredient('dessert')">Ajouter Ingrédient</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="cout">Coût Total:</label>
+                    <input type="number" id="cout" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="marge">Marge (%):</label>
+                    <input type="number" id="marge" placeholder="Ex: 20" step="0.01" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label for="prix-vente">Prix de Vente:</label>
+                    <input type="number" id="prix-vente" value="25" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="marge-brute">Marge Brute (€):</label>
+                    <input type="number" id="marge-brute" readonly>
+                </div>
+            </section>
+
+            <footer>
+                <button type="button" class="btn" onclick="sauvegarderFiche()">Sauvegarder</button>
+                <button type="button" class="btn" onclick="nouvelleFiche()">Nouvelle Fiche</button>
+                <button type="button" class="btn" onclick="imprimer()">Imprimer</button>
+            </footer>
+
+            <section class="liste-fiches">
+                <h2>Menus Sauvegardés</h2>
+                <input type="text" id="search" class="search-box" placeholder="Rechercher..." oninput="rechercherFiche()">
+                <ul id="liste-fiches" class="fiches-list"></ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
